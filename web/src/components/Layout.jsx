@@ -1,18 +1,14 @@
-import Header from './Header'
+import Navbar from './Navbar'
+import Footer from './Footer'
 
 function Layout({ children }) {
   return (
-    <div className="layout">
-      <Header />
-      <main className="main-content">
-        {children}
-      </main>
-      <footer className="footer">
-        <p>&copy; 2024 Serverless Blog. All rights reserved.</p>
-      </footer>
-    </div>
+    <>
+      <Navbar />
+      {children}
+      <Footer />
+    </>
   )
 }
 
 export default Layout
-
