@@ -60,7 +60,7 @@ function Navbar() {
               <Link className={`nav-link px-lg-3 py-3 py-lg-4 ${location.pathname === '/about' ? 'active' : ''}`} to="/about">About</Link>
             </li>
             <li className="nav-item">
-              <Link className={`nav-link px-lg-3 py-3 py-lg-4 ${location.pathname === '/post' ? 'active' : ''}`} to="/post">Sample Post</Link>
+              <Link className={`nav-link px-lg-3 py-3 py-lg-4 ${location.pathname.startsWith('/post') ? 'active' : ''}`} to="/post/1">Sample Post</Link>
             </li>
             <li className="nav-item">
               <Link className={`nav-link px-lg-3 py-3 py-lg-4 ${location.pathname === '/contact' ? 'active' : ''}`} to="/contact">Contact</Link>
