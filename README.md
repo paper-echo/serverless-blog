@@ -20,25 +20,31 @@ A modern, beautiful blog application built with React.js, featuring a clean UI a
 
 ### Installation
 
-1. Install dependencies:
+1. Navigate to the web directory:
+```bash
+cd web
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Start the development server:
+3. Start the development server:
 ```bash
 npm run dev
 ```
 
-3. Open your browser and navigate to `http://localhost:5173`
+4. Open your browser and navigate to `http://localhost:5173`
 
 ### Build for Production
 
 ```bash
+cd web
 npm run build
 ```
 
-The built files will be in the `dist` directory.
+The built files will be in the `web/dist` directory.
 
 ### Preview Production Build
 
@@ -50,25 +56,44 @@ npm run preview
 
 ```
 serverless-blog/
-├── src/
-│   ├── components/
-│   │   ├── BlogList.jsx      # Blog post listing page
-│   │   ├── BlogPost.jsx      # Individual blog post page
-│   │   ├── Header.jsx        # Navigation header
-│   │   └── Layout.jsx        # Main layout wrapper
-│   ├── data/
-│   │   └── blogPosts.js      # Sample blog posts data
-│   ├── App.jsx               # Main app component with routing
-│   ├── main.jsx              # Application entry point
-│   └── index.css             # Global styles
-├── index.html
-├── package.json
-└── vite.config.js
+├── web/                      # React application
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── BlogList.jsx      # Blog post listing page
+│   │   │   ├── BlogPost.jsx      # Individual blog post page
+│   │   │   ├── Header.jsx        # Navigation header
+│   │   │   └── Layout.jsx         # Main layout wrapper
+│   │   ├── data/
+│   │   │   └── blogPosts.js       # Sample blog posts data
+│   │   ├── App.jsx               # Main app component with routing
+│   │   ├── main.jsx              # Application entry point
+│   │   └── index.css             # Global styles
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+├── terraform/                # Infrastructure as Code
+│   ├── main.tf               # Main Terraform configuration
+│   ├── variables.tf          # Variable definitions
+│   ├── outputs.tf            # Output values
+│   └── terraform.tfvars.example
+├── deploy.sh                 # Deployment script
+└── DEPLOYMENT.md             # Deployment guide
+```
+
+## Deployment
+
+This project includes Terraform configuration to deploy to AWS S3 + CloudFront.
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+
+Quick deploy:
+```bash
+./deploy.sh
 ```
 
 ## Adding New Blog Posts
 
-Edit `src/data/blogPosts.js` and add new post objects with the following structure:
+Edit `web/src/data/blogPosts.js` and add new post objects with the following structure:
 
 ```javascript
 {
@@ -89,6 +114,10 @@ Edit `src/data/blogPosts.js` and add new post objects with the following structu
 - React Router DOM
 - Vite
 - CSS3 (with CSS Variables)
+- Terraform (for AWS infrastructure)
+- AWS S3 (static hosting)
+- AWS CloudFront (CDN)
+- AWS Route53 (DNS)
 
 ## License
 
